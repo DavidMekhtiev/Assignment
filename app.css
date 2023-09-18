@@ -1,0 +1,60 @@
+.header{
+    background-color: #111827;
+    color: white;
+    width: 75%;
+    height: 3.5rem;
+    margin-left: 15rem;
+    border-bottom-right-radius: 0.375rem; 
+    border-bottom-left-radius: 0.375rem;
+}
+
+.logo{
+    display: inline-block;
+    font-size: 3rem; 
+    line-height: 1; 
+    margin-left: 1.25rem;
+}
+
+.search{
+    width: 24rem;
+    height: 2.25rem;
+    border-top-left-radius: 0.125rem;
+    border-bottom-left-radius: 0.125rem;
+    color: black; 
+    font-size: 1.5rem;
+    line-height: 2rem; 
+}
+
+.search>button{
+    border-width: 2px;
+    border-top-right-radius: 0.125rem;
+    border-bottom-right-radius: 0.125rem;
+    position: absolute;
+}
+
+.user-head{
+    display: inline-block;
+    right: 16rem;
+    margin-top: 0.25rem;
+    position: absolute;
+    font-size: 2.25rem; 
+    line-height: 2.5rem; 
+}
+
+.user-head>a>span{
+    display: inline-block;
+    border-left-width: 2px;
+    padding-left: 0.5rem;
+    vertical-align: middle;
+}
+
+.content{
+    background-color: #111827;
+    color: white;
+    width: 75%;
+    height: 55rem;
+    margin-left: 15rem;
+    margin-top: 3rem;
+    border-radius: 0.375rem;
+}
+
