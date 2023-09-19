@@ -1,46 +1,161 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <link href="../app.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
 
-@section('content')
-<div class=" pt-8 pl-24 text-center">
-    <span class=" text-5xl -ml-32">Cart</span><br>
-    <a href="{{ route('account.cart.buy') }}" class=" pr-5 pl-5 text-3xl border float-right mr-28 hover:bg-white hover:text-gray-900">Buy</a><br>
-    <table class=" w-11/12 mt-5">
-        <thead>
-            <tr>
-                <th class=" border text-2xl w-36">Image</th>
-                <th class=" border text-2xl w-64">Title</th>
-                <th class=" border text-2xl w-96">Description</th>
-                <th class=" border text-2xl w-36">Price</th>
-                <th class=" border text-2xl w-16">Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (auth()->user()->games as $game)
-                <tr>
-                    <td class=" border">
-                        <img src="{{ asset('/storage/'. $game->image) }}" alt="" class=" w-28 ml-8">
-                    </td>
-                    <td class=" border">
-                        <span class=" text-3xl">{{ $game->title }}</span>
-                    </td>
-                    <td class=" border">
-                        <span class=" text-2xl">{{ substr($game->description,0,30) }}...</span>
-                    </td>
-                    <td class=" border">
-                        <span class=" text-3xl">{{ $game->price }}$</span>
-                    </td>
-                    <td class=" border">
-                        <form action="{{ route('account.cart.delete', $game->id)}}" method="POST">
-                            @csrf
-                            @method('delete')
-                            <button type="submit">
-                                <img src="https://img.icons8.com/ios-filled/40/ffffff/delete-sign--v1.png" class=""/>
-                            </button>
-                        </form>
-                    </td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
-</div>   
-@endsection
+        <title>GameStore</title>
+    </head>
+    <body>
+        <div class="header">
+            <a href="../home.html" class="logo">
+              GameStore
+            </a>
+            <form action="" class="search-form" method="POST">
+              <input type="text" class="search" placeholder="Поиск...">
+              <button type="submit">
+                <span>
+                  <img src="https://img.icons8.com/ios-filled/32/000000/search--v1.png"/>
+                </span>
+              </button>
+            </form>
+            <div class="user-head">
+              <a href="cart.html">
+                  <img src="https://img.icons8.com/ios-filled/50/000000/guest-male--v2.png" style="display: inline-block;"/>
+                  <span>
+                    David
+                  </span>
+              </a>
+            </div>
+          </div>
+          
+          <div class="content">
+                <div style="margin-left: 3rem; margin-right: 3rem;">
+                    <span style="margin-left: 44%; font-size: 3rem;">Корзина</span><br>
+                    <table style="margin-top: 2rem;">
+                        <thead>
+                            <tr>
+                                <th>Картинка</th>
+                                <th>Название</th>
+                                <th>Описание</th>
+                                <th>Цена</th>
+                                <th>Удалить</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                <tr>
+                                    <td>
+                                        <img src="https://cdn.akamai.steamstatic.com/steam/apps/359550/capsule_616x353.jpg?t=1694635629" alt="" style="width: 200px;">
+                                    </td>
+                                    <td>
+                                        <span class="text-cart">Rainbow six siege</span>
+                                    </td>
+                                    <td>
+                                        <span class="text-cart">Rainbow Six Осада - тактический командный шутер...</span>
+                                    </td>
+                                    <td>
+                                        <span class="text-cart">19.99$</span>
+                                    </td>
+                                    <td>
+                                        <form action="#" method="POST">
+                                            <button type="submit" style="background-color: red;">
+                                                <img src="https://img.icons8.com/ios-filled/40/ffffff/delete-sign--v1.png" />
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="https://cdn.akamai.steamstatic.com/steam/apps/359550/capsule_616x353.jpg?t=1694635629" alt="" style="width: 200px;">
+                                    </td>
+                                    <td>
+                                        <span class="text-cart">Rainbow six siege</span>
+                                    </td>
+                                    <td>
+                                        <span class="text-cart">Rainbow Six Осада - тактический командный шутер...</span>
+                                    </td>
+                                    <td>
+                                        <span class="text-cart">19.99$</span>
+                                    </td>
+                                    <td>
+                                        <form action="#" method="POST">
+                                            <button type="submit" style="background-color: red;">
+                                                <img src="https://img.icons8.com/ios-filled/40/ffffff/delete-sign--v1.png" />
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="https://cdn.akamai.steamstatic.com/steam/apps/359550/capsule_616x353.jpg?t=1694635629" alt="" style="width: 200px;">
+                                    </td>
+                                    <td>
+                                        <span class="text-cart">Rainbow six siege</span>
+                                    </td>
+                                    <td>
+                                        <span class="text-cart">Rainbow Six Осада - тактический командный шутер...</span>
+                                    </td>
+                                    <td>
+                                        <span class="text-cart">19.99$</span>
+                                    </td>
+                                    <td>
+                                        <form action="#" method="POST">
+                                            <button type="submit" style="background-color: red;">
+                                                <img src="https://img.icons8.com/ios-filled/40/ffffff/delete-sign--v1.png" />
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="https://cdn.akamai.steamstatic.com/steam/apps/359550/capsule_616x353.jpg?t=1694635629" alt="" style="width: 200px;">
+                                    </td>
+                                    <td>
+                                        <span class="text-cart">Rainbow six siege</span>
+                                    </td>
+                                    <td>
+                                        <span class="text-cart">Rainbow Six Осада - тактический командный шутер...</span>
+                                    </td>
+                                    <td>
+                                        <span class="text-cart">19.99$</span>
+                                    </td>
+                                    <td>
+                                        <form action="#" method="POST">
+                                            <button type="submit" style="background-color: red;">
+                                                <img src="https://img.icons8.com/ios-filled/40/ffffff/delete-sign--v1.png" />
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="https://cdn.akamai.steamstatic.com/steam/apps/359550/capsule_616x353.jpg?t=1694635629" alt="" style="width: 200px;">
+                                    </td>
+                                    <td>
+                                        <span class="text-cart">Rainbow six siege</span>
+                                    </td>
+                                    <td>
+                                        <span class="text-cart">Rainbow Six Осада - тактический командный шутер...</span>
+                                    </td>
+                                    <td>
+                                        <span class="text-cart">19.99$</span>
+                                    </td>
+                                    <td>
+                                        <form action="#" method="POST">
+                                            <button type="submit" style="background-color: red;">
+                                                <img src="https://img.icons8.com/ios-filled/40/ffffff/delete-sign--v1.png" />
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                        </tbody>
+                    </table>
+                    <a href="#" id="buy-button">Купить</a>
+                </div>   
+            </div>   
+        </body>
+    </html> 
